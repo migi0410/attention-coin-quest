@@ -28,32 +28,32 @@ const Index = () => {
   const [tasks, setTasks] = useState<Task[]>([
     {
       id: "task-a",
-      title: "Share 3 Hobbies",
-      description: "Tell me 3 of your personal hobbies (e.g., what you like to eat, movies you watch, places you go...)",
+      title: "Chia Sẻ 3 Sở Thích",
+      description: "Cho tôi biết 3 sở thích cá nhân của bạn (ví dụ: bạn thích ăn gì, xem phim gì, đi đâu...)",
       reward: 5,
       type: "text",
       completed: false,
     },
     {
       id: "task-b",
-      title: "Favorite TikTok Channel",
-      description: "What is the name of the TikTok channel you watched the most this past week?",
+      title: "Kênh TikTok Yêu Thích",
+      description: "Tên kênh TikTok bạn xem nhiều nhất tuần vừa rồi là gì?",
       reward: 3,
       type: "text",
       completed: false,
     },
     {
       id: "task-c",
-      title: "Watch an Ad",
-      description: "Agree to watch a 30-second ad (You cannot look away or skip!)",
+      title: "Xem Quảng Cáo",
+      description: "Đồng ý xem quảng cáo 30 giây (Bạn không được nhìn chỗ khác hay bỏ qua!)",
       reward: 7,
       type: "timer",
       completed: false,
     },
     {
       id: "task-d",
-      title: "Create an Idea",
-      description: "Quickly think of 1 idea for a new TikTok video.",
+      title: "Tạo Ý Tưởng",
+      description: "Nhanh chóng nghĩ ra 1 ý tưởng cho video TikTok mới.",
       reward: 6,
       type: "text",
       completed: false,
@@ -61,9 +61,9 @@ const Index = () => {
   ]);
 
   const storeItems = [
-    { id: "candy", name: "A Candy", price: 5, emoji: "🍬" },
-    { id: "snack", name: "A Snack", price: 10, emoji: "🍿" },
-    { id: "soda", name: "A Soda", price: 15, emoji: "🥤" },
+    { id: "candy", name: "Một Viên Kẹo", price: 5, emoji: "🍬" },
+    { id: "snack", name: "Một Gói Snack", price: 10, emoji: "🍿" },
+    { id: "soda", name: "Một Lon Nước", price: 15, emoji: "🥤" },
   ];
 
   const handleTaskComplete = (taskId: string) => {
@@ -74,8 +74,8 @@ const Index = () => {
     setBalance(balance + task.reward);
     
     toast({
-      title: "Task Completed!",
-      description: `You earned ${task.reward} Attention Coins`,
+      title: "Nhiệm Vụ Hoàn Thành!",
+      description: `Bạn đã kiếm được ${task.reward} Xu Sự Chú Ý`,
     });
   };
 
@@ -89,8 +89,8 @@ const Index = () => {
         setFirstPurchase(false);
       } else {
         toast({
-          title: "Purchase Successful!",
-          description: `You bought ${itemName}`,
+          title: "Mua Thành Công!",
+          description: `Bạn đã mua ${itemName}`,
         });
       }
     }
@@ -103,48 +103,50 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-bg p-4 md:p-8">
       <div className="max-w-7xl mx-auto space-y-8">
-        <div className="text-center space-y-4">
+        <div className="text-center space-y-4 animate-fade-in">
           <h1 className="text-3xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            The Attention Store
+            Cửa Hàng Sự Chú Ý
           </h1>
           <BalanceDisplay balance={balance} />
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Store Section */}
-          <div className="space-y-4">
-            <div className="bg-card p-4 rounded-xl shadow-card">
-              <h2 className="text-2xl font-bold text-primary mb-6">🛒 The Store</h2>
+          <div className="space-y-4 animate-fade-in">
+            <div className="bg-card p-4 rounded-xl shadow-card transition-all duration-300 hover:shadow-card-hover">
+              <h2 className="text-2xl font-bold text-primary mb-6">🛒 Cửa Hàng</h2>
               <div className="space-y-4">
-                {storeItems.map((item) => (
-                  <StoreItem
-                    key={item.id}
-                    name={item.name}
-                    price={item.price}
-                    emoji={item.emoji}
-                    canAfford={balance >= item.price}
-                    onPurchase={() => handlePurchase(item.name, item.price)}
-                  />
+                {storeItems.map((item, index) => (
+                  <div key={item.id} style={{ animationDelay: `${index * 100}ms` }}>
+                    <StoreItem
+                      name={item.name}
+                      price={item.price}
+                      emoji={item.emoji}
+                      canAfford={balance >= item.price}
+                      onPurchase={() => handlePurchase(item.name, item.price)}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
           </div>
 
           {/* Tasks Section */}
-          <div className="space-y-4">
-            <div className="bg-card p-4 rounded-xl shadow-card">
-              <h2 className="text-2xl font-bold text-accent mb-6">💰 Earn Coins</h2>
+          <div className="space-y-4 animate-fade-in">
+            <div className="bg-card p-4 rounded-xl shadow-card transition-all duration-300 hover:shadow-card-hover">
+              <h2 className="text-2xl font-bold text-accent mb-6">💰 Kiếm Xu</h2>
               <div className="space-y-4">
-                {tasks.map((task) => (
-                  <TaskItem
-                    key={task.id}
-                    title={task.title}
-                    description={task.description}
-                    reward={task.reward}
-                    type={task.type}
-                    completed={task.completed}
-                    onComplete={() => handleTaskComplete(task.id)}
-                  />
+                {tasks.map((task, index) => (
+                  <div key={task.id} style={{ animationDelay: `${index * 100}ms` }}>
+                    <TaskItem
+                      title={task.title}
+                      description={task.description}
+                      reward={task.reward}
+                      type={task.type}
+                      completed={task.completed}
+                      onComplete={() => handleTaskComplete(task.id)}
+                    />
+                  </div>
                 ))}
               </div>
             </div>

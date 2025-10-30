@@ -17,38 +17,38 @@ interface ConclusionModalProps {
 const ConclusionModal = ({ isOpen, onClose, itemPurchased }: ConclusionModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-2xl animate-scale-in">
         <DialogHeader>
-          <div className="flex items-center gap-3 mb-4">
-            <AlertCircle className="w-8 h-8 text-primary" />
+          <div className="flex items-center gap-3 mb-4 animate-fade-in">
+            <AlertCircle className="w-8 h-8 text-primary animate-pulse" />
             <DialogTitle className="text-2xl bg-gradient-primary bg-clip-text text-transparent">
-              TRANSACTION COMPLETE!
+              GIAO DỊCH HOÀN TẤT!
             </DialogTitle>
           </div>
         </DialogHeader>
         
-        <div className="space-y-4 text-foreground/90 leading-relaxed">
+        <div className="space-y-4 text-foreground/90 leading-relaxed animate-fade-in">
           <p className="text-lg">
-            You "bought" <span className="font-semibold text-primary">{itemPurchased}</span>. 
-            Did you realize? You didn't use real money.
+            Bạn đã "mua" <span className="font-semibold text-primary">{itemPurchased}</span>. 
+            Bạn có nhận ra không? Bạn không dùng tiền thật.
           </p>
           
           <p className="text-lg">
-            You paid me with <span className="font-semibold text-accent">your hobbies</span> and{" "}
-            <span className="font-semibold text-accent">your time spent watching an ad</span>.
+            Bạn đã trả tôi bằng <span className="font-semibold text-accent">sở thích của bạn</span> và{" "}
+            <span className="font-semibold text-accent">thời gian xem quảng cáo</span>.
           </p>
           
-          <div className="bg-primary/5 p-6 rounded-lg border-l-4 border-primary mt-6">
+          <div className="bg-primary/5 p-6 rounded-lg border-l-4 border-primary mt-6 animate-fade-in hover:scale-105 transition-all duration-300">
             <p className="text-base font-medium">
-              This is exactly how platforms like <span className="font-bold">TikTok</span> and{" "}
-              <span className="font-bold">Facebook</span> work.
+              Đây chính xác là cách các nền tảng như <span className="font-bold">TikTok</span> và{" "}
+              <span className="font-bold">Facebook</span> hoạt động.
             </p>
             <p className="text-base mt-3">
-              The content you watch (like this candy) seems "free", but you are actually paying 
-              for it with the most valuable currency in the digital economy:
+              Nội dung bạn xem (như chiếc kẹo này) có vẻ "miễn phí", nhưng thực ra bạn đang trả 
+              bằng loại tiền tệ có giá trị nhất trong nền kinh tế số:
             </p>
-            <p className="text-xl font-bold text-primary mt-3">
-              Your Personal Data and your Attention
+            <p className="text-xl font-bold text-primary mt-3 animate-pulse">
+              Dữ Liệu Cá Nhân và Sự Chú Ý của Bạn
             </p>
           </div>
         </div>
@@ -56,9 +56,9 @@ const ConclusionModal = ({ isOpen, onClose, itemPurchased }: ConclusionModalProp
         <DialogFooter>
           <Button 
             onClick={onClose}
-            className="w-full mt-4 bg-gradient-primary text-lg py-6"
+            className="w-full mt-4 bg-gradient-primary text-lg py-6 hover:scale-105 transition-all duration-300"
           >
-            I Understand Now!
+            Tôi Hiểu Rồi!
           </Button>
         </DialogFooter>
       </DialogContent>

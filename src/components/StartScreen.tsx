@@ -19,23 +19,23 @@ const StartScreen = ({ onStart }: StartScreenProps) => {
           </div>
           
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Welcome to "The Attention Store"!
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-fade-in">
+              Chào mừng đến "Cửa Hàng Sự Chú Ý"!
             </h1>
             
-            <div className="space-y-4 text-lg text-foreground/80">
+            <div className="space-y-4 text-lg text-foreground/80 animate-fade-in">
               <p className="leading-relaxed">
-                Here, everything is <span className="font-semibold text-primary">"free"</span>! 
-                <span className="inline-block ml-2">(Points to virtual items like Candy, Snacks)</span>
+                Ở đây, mọi thứ đều <span className="font-semibold text-primary">"miễn phí"</span>! 
+                <span className="inline-block ml-2">(Chỉ vào các món ảo như Kẹo, Snack)</span>
               </p>
               
               <p className="leading-relaxed">
-                Oh, but wait... to get them, you must <span className="font-semibold">"pay"</span>. 
-                My store doesn't accept cash; I only accept one currency:
+                Nhưng khoan... để có chúng, bạn phải <span className="font-semibold">"trả tiền"</span>. 
+                Cửa hàng của tôi không nhận tiền mặt; tôi chỉ chấp nhận một loại tiền tệ:
               </p>
               
-              <p className="text-2xl font-bold text-accent drop-shadow-lg">
-                Attention Coins
+              <p className="text-2xl font-bold text-accent drop-shadow-lg animate-pulse">
+                Xu Sự Chú Ý
               </p>
             </div>
           </div>
@@ -43,9 +43,9 @@ const StartScreen = ({ onStart }: StartScreenProps) => {
           <Button 
             onClick={onStart}
             size="lg"
-            className="mt-8 text-lg px-8 py-6 bg-gradient-primary hover:shadow-card-hover transition-all duration-300"
+            className="mt-8 text-lg px-8 py-6 bg-gradient-primary hover:shadow-card-hover transition-all duration-300 hover:scale-105 animate-fade-in"
           >
-            Explore the Store
+            Khám Phá Cửa Hàng
           </Button>
         </div>
       </Card>
